@@ -1,38 +1,89 @@
-.App {
-  text-align: center;
+.bug {
+  background: #92BC2C !important;
+  box-shadow: 0 0 20px #92BC2C !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.dark {
+  background: #595761 !important;
+  box-shadow: 0 0 20px #595761 !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.dragon {
+  background: #0C69C8 !important;
+  box-shadow: 0 0 20px #0C69C8 !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.electric {
+  background: #F2D94E !important;
+  box-shadow: 0 0 20px #F2D94E !important;
 }
 
-.App-link {
-  color: #61dafb;
+.fire {
+  background: #FBA54C !important;
+  box-shadow: 0 0 20px #FBA54C !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.fairy {
+  background: #EE90E6 !important;
+  box-shadow: 0 0 20px #EE90E6 !important;
+}
+
+.fighting {
+  background: #D3425F !important;
+  box-shadow: 0 0 20px #D3425F !important;
+}
+
+.flying {
+  background: #A1BBEC !important;
+  box-shadow: 0 0 20px #A1BBEC !important;
+}
+
+.ghost {
+  background: #5F6DBC !important;
+  box-shadow: 0 0 20px #5F6DBC !important;
+}
+
+.grass {
+  background: #5FBD58 !important;
+  box-shadow: 0 0 20px #5FBD58 !important;
+}
+
+.ground {
+  background: #DA7C4D !important;
+  box-shadow: 0 0 20px #DA7C4D !important;
+}
+
+.ice {
+  background: #75D0C1 !important;
+  box-shadow: 0 0 20px #75D0C1 !important;
+}
+
+.normal {
+  background: #A0A29F !important;
+  box-shadow: 0 0 20px #A0A29F !important;
+}
+
+.poison {
+  background: #B763CF !important;
+  box-shadow: 0 0 20px #B763CF !important;
+}
+
+.psychic {
+  background: #FA8581 !important;
+  box-shadow: 0 0 20px #FA8581 !important;
+}
+
+.rock {
+  background: #C9BB8A !important;
+  box-shadow: 0 0 20px #C9BB8A !important;
+}
+
+.steel {
+  background: #5695A3 !important;
+  box-shadow: 0 0 20px #5695A3 !important;
+}
+
+.water {
+  background: #539DDF !important;
+  box-shadow: 0 0 20px #539DDF !important;
 }
