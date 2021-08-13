@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react'
 import { makeStyles, Box, CardMedia, Typography, Grid, IconButton, Tooltip } from '@material-ui/core'
+import { Skeleton } from '@material-ui/lab'
 import { useParams } from 'react-router-dom'
 import PokemonDetailContext from '../contexts/PokemonDetailContext'
 import { MyPokemonContext } from '../contexts/MyPokemonContext'
@@ -40,7 +41,15 @@ const useStyles = makeStyles({
     alignItems: 'center'
   },
   GridItemImage: {
-    width: '80%'
+    width: '80%',
+    alignSelf: 'stretch',
+    padding: 8
+  },
+  PokemonGeneralInformation: {
+    padding: 8
+  },
+  PokemonMoves: {
+    padding: 8
   },
   BoxMoves: {
     display: 'flex',
@@ -109,31 +118,47 @@ const PokemonDetail = () => {
       <Box className={classes.root}>
         <Box className={classes.BoxPageContainer}>
           <Box className={classes.BoxTitle}>
-            <Typography variant='h4' className={classes.TypographyPokemonNameTitle}>
-              {pokemon?.name}
-            </Typography>
-            <Tooltip title='Catch Pokemon'>
-              <IconButton color="secondary" onClick={handleCatchPokemon} disabled={catchTimeout > 0 ? true : false}>
-                <CgPokemon />
-              </IconButton>
-            </Tooltip>
-            <Typography variant='subtitle1' className={classes.TypographyPokemonNameTitle}>
-              (Owned {getMyPokemon().filter(myPokemon => myPokemon.name === pokemon?.name).length})
-            </Typography>
+            {pokemon ?
+              <>
+                <Typography variant='h4' className={classes.TypographyPokemonNameTitle}>
+                  {pokemon?.name}
+                </Typography>
+                <Tooltip title='Catch Pokemon'>
+                  <IconButton color="secondary" onClick={handleCatchPokemon} disabled={catchTimeout > 0 ? true : false}>
+                    <CgPokemon />
+                  </IconButton>
+                </Tooltip>
+                <Typography variant='subtitle1' className={classes.TypographyPokemonNameTitle}>
+                  (Owned {getMyPokemon().filter(myPokemon => myPokemon.name === pokemon?.name).length})
+                </Typography>
+              </>
+            : <Skeleton width={600} height={60} />
+            }
           </Box>
           <Grid container className={classes.Grid}>
             <Grid item sm={4} className={classes.GridItemImage}>
-              <CardMedia
-                component='img'
-                image={pokemon?.sprites.front_default}
-                title={pokemon?.name}
-              />
+              {pokemon ?
+                <CardMedia
+                  component='img'
+                  image={pokemon?.sprites.front_default}
+                  title={pokemon?.name}
+                />
+                : <Skeleton variant="rect" width='100%' height={400} />
+              }
             </Grid>
-            <Grid item sm={8}>
-              <PokemonGeneralInformation />
+            <Grid item sm={8} className={classes.PokemonGeneralInformation}>
+              {pokemon ?
+                <PokemonGeneralInformation />
+                : <Skeleton variant="rect" width='100%' height={400} />
+              }
             </Grid>
           </Grid>
-          <PokemonMoves />
+          <Box className={classes.PokemonMoves}>
+            {pokemon ?
+              <PokemonMoves />
+              : <Skeleton variant="rect" width='100%' height={370} />
+            }
+          </Box>
         </Box>
       </Box>
       <Toast message={alertMessage} type={alertType} handleAlertClose={handleAlertClose} />
