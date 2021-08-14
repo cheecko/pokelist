@@ -36,10 +36,12 @@ const MyPokemon = () => {
   const [alertType, setAlertType] = useState('success')
   const [alertMessage, setAlertMessage] = useState('')
 
-  const handleRemovePokemon = (name, nickname) => {
-    const filter = getMyPokemon().filter(pokemon => pokemon.name !== name || pokemon.nickname !== nickname)
-    setMyPokemon(filter)
-    setPokemons(filter)
+  const handleRemovePokemon = (e) => {
+    const name = e.currentTarget.dataset.name
+    const nickname = e.currentTarget.dataset.nickname
+    const pokemon = getMyPokemon().filter(pokemon => pokemon.name !== name || pokemon.nickname !== nickname)
+    setMyPokemon(pokemon)
+    setPokemons(pokemon)
     setAlertType('success')
     setAlertMessage(`Pokemon is released, Good bye ${nickname}`)
   }
@@ -64,7 +66,7 @@ const MyPokemon = () => {
           <Box className={classes.PokemonListCardContainer}>
             {pokemons.map((pokemon, index) => (
               <LazyLoad height={200} offset={200} key={index} className={classes.PokemonListCardWrapper}>
-                <MyPokemonListCard name={pokemon?.name} nickname={pokemon?.nickname} onClick={() => handleRemovePokemon(pokemon?.name, pokemon?.nickname)} />
+                <MyPokemonListCard name={pokemon?.name} nickname={pokemon?.nickname} onClick={handleRemovePokemon} />
               </LazyLoad>
             ))}
           </Box>

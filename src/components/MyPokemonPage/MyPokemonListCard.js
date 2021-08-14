@@ -59,7 +59,7 @@ const MyPokemonListCard = ({ name, nickname, onClick }) => {
               <Typography variant='subtitle2' className={classes.CardHeaderSubTitle}>
                 {cutString(pokemonDetail?.nickname ?? '')}
               </Typography>
-              <IconButton size='small' onClick={onClick}>
+              <IconButton size='small' onClick={onClick} data-name={name} data-nickname={nickname}>
                 <FaTimes />
               </IconButton>
             </Box>
