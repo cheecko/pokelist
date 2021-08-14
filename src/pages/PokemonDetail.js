@@ -12,6 +12,7 @@ import Toast from '../components/Toast'
 import PokemonGeneralInformation from '../components/PokemonDetailPage/PokemonGeneralInformation'
 import PokemonMoves from '../components/PokemonDetailPage/PokemonMoves'
 import AddPokemonNicknameDialog from '../components/PokemonDetailPage/AddPokemonNicknameDialog'
+import CustomIcons from '../components/CustomIcons';
 
 const useStyles = makeStyles({
   root: {
@@ -125,7 +126,7 @@ const PokemonDetail = () => {
                 </Typography>
                 <Tooltip title='Catch Pokemon'>
                   <IconButton color="secondary" onClick={handleCatchPokemon} disabled={catchTimeout > 0 ? true : false}>
-                    <CgPokemon />
+                    <CustomIcons name='pokeball' className={catchTimeout > 0 ? 'spin-and-left-toright' : 'rotating'} />
                   </IconButton>
                 </Tooltip>
                 <Typography variant='subtitle1' className={classes.TypographyPokemonNameTitle}>
