@@ -6,7 +6,6 @@ import PokemonDetailContext from '../contexts/PokemonDetailContext'
 import { MyPokemonContext } from '../contexts/MyPokemonContext'
 import { GET_POKEMON } from '../constants/queries'
 import { useQuery } from '@apollo/client'
-import { CgPokemon } from "react-icons/cg"
 import Header from '../components/Header'
 import Toast from '../components/Toast'
 import PokemonGeneralInformation from '../components/PokemonDetailPage/PokemonGeneralInformation'
@@ -109,9 +108,6 @@ const PokemonDetail = () => {
   useEffect(() => {
     if(data) setPokemon(data.pokemon)
   }, [data])
-
-  console.log(data)
-  console.log(pokemon)
 
   return (
     <PokemonDetailContext.Provider value={{pokemon}}>

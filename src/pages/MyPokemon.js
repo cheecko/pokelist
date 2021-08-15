@@ -55,9 +55,6 @@ const MyPokemon = () => {
     // eslint-disable-next-line
   }, [])
 
-  console.log(getMyPokemon())
-  console.log(pokemons)
-
   return (
     <PokemonsContext.Provider value={{pokemons}}>
       <Header title='PokeList' backButton />

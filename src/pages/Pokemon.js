@@ -40,8 +40,6 @@ const Pokemon = () => {
     fetchMore({
       variables: { offset: pokemons.length },
       updateQuery: (pv, { fetchMoreResult }) => {
-        console.log(pv)
-        console.log(fetchMoreResult)
         fetchMoreResult.pokemons.results.length !== 0 ? setPokemons(pokemons => [...pokemons, ...fetchMoreResult.pokemons.results]) : setLastPage(true)
       }
     })
@@ -54,9 +52,6 @@ const Pokemon = () => {
   useEffect(() => {
     if(data) setPokemons(data.pokemons.results)
   }, [data])
-
-  console.log(data)
-  console.log(pokemons)
 
   return (
     <PokemonsContext.Provider value={{pokemons}}>
